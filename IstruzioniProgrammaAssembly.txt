@@ -1,0 +1,16 @@
+Istruzioni per eseguire un programma assembly
+
+Istruzioni base per eseguire i programmi assembly:
+
+    scrivere il programma con un qualsiasi editor di testo (ad es. SCITE)
+        come prima riga inserire: %include "utils.nasm"
+    salvare il file con nome (ad es. prova.asm) in una cartella dove sono presenti anche i file utils.nams e utils.o
+    da una console, entrare nella cartella dove sono i file e assemblare il programma7b
+        nasm -f elf32 prova.asm
+significato dell'istruzione: 
+    questo comando creerà nella cartella il file oggetto prova.o
+    creare l'eseguibile utilizzando il linker:
+        ld -m elf_i386 utils.o prova.o -o prova
+    eseguire il programma
+        ./prova
+    Buon divertimento!
