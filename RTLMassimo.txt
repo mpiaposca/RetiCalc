@@ -1,0 +1,46 @@
+preso un vettore V di word, restituisco il massimo
+
+RTL (VETTORE DI 32 ELEMENTI ASSUNTI TUTTI POSITIVI)
+IRX->MAR, A->0, B->0, 32->T1;
+M[MAR]->MBR, INC(MAR)->MAR;
+MBR ->A, M[MAR]->MBR;
+IF (OR(T1)==1) THEN
+MBR->B;
+A-B ->B;
+IF(SF==1)THEN
+MBR->A;
+INC(MAR)->MAR, DEC(T1)->T1;
+ELSE
+INC(MAR)->MAR, DEC(T1)->T1;
+ELSE
+A -> AC;
+
+RTL(VETTORE DI 32 BIT IN COMPLEMENTO A 2)
+IRX->MAR, A->0, B->0, 32->T1;
+M[MAR]->MBR, INC(MAR)->MAR;
+MBR ->A, M[MAR]->MBR;
+MBR->B;
+	IF(A31==0)THEN
+		IF(B31==0)THEN
+		A-B -> B;
+			IF(SF==1)THEN
+			MBR->A, INC(MAR)->MAR, DEC(T1)->T1;
+			ELSE
+			INC(MAR)->MAR, DEC(T1)->T1;
+		ELSE
+		INC(MAR)->MAR, DEC(T1)->T1;
+	ELSE
+		IF(B31==0)THEN
+		MBR -> A, INC(MAR)->MAR, DEC(T1)->T1;
+		ELSE
+		A-B -> B
+			IF (SF == 0)
+			INC(MAR)->MAR, DEC(T1)->T1;
+			ELSE
+			MBR->A, INC(MAR)->MAR, DEC(T1)->T1;
+A->AC
+
+
+
+
+		
